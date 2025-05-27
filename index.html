@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ÉCLAVIE - Neo Future</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      overflow: hidden;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #fff;
+    }
+
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: radial-gradient(ellipse at center, rgba(0,255,255,0.15) 0%, rgba(0,0,0,0.6) 100%);
+      animation: moveBg 20s linear infinite;
+    }
+
+    @keyframes moveBg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .logo-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .logo-container img {
+      width: 280px;
+      max-width: 80%;
+      animation: fadeInZoom 2s ease-out forwards;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .logo-container h1 {
+      font-size: 36px;
+      margin-top: 30px;
+      color: #00ffff;
+      letter-spacing: 4px;
+      font-weight: normal;
+      animation: textFadeIn 1.5s ease-out forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    .logo-container p {
+      font-size: 18px;
+      color: #b0bec5;
+      max-width: 600px;
+      margin: 10px auto 0;
+      line-height: 1.6;
+      animation: textFadeIn 1.5s ease-out forwards;
+      animation-delay: 1.6s;
+      opacity: 0;
+    }
+
+    @keyframes fadeInZoom {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes textFadeIn {
+      to { opacity: 1; }
+    }
+
+    .tap-to-unmute {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+      z-index: 2;
+    }
+
+    @media screen and (max-width: 768px) {
+      .logo-container h1 { font-size: 28px; }
+      .logo-container p { font-size: 16px; padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="particles"></div>
+
+<div class="logo-container">
+  <img src="logo.png" alt="ÉCLAVIEロゴ">
+  <h1>ÉCLAVIE</h1>
+  <p>世界を魅了するアパレルブランドへ。<br>コスプレレンタルから始まる、“特別”の形。</p>
+</div>
+
+<div class="tap-to-unmute" id="tapHint" style="display: none;">※ 音が出ない場合は画面をタップしてね</div>
+
+<audio id="bgm" src="neo-future.mp3" autoplay loop></audio>
+
+<script>
+  const audio = document.getElementById('bgm');
+  const hint = document.getElementById('tapHint');
+
+  function tryPlay() {
+    audio.play().then(() => {
+      hint.style.display = 'none';
+    }).catch(() => {
+      hint.style.display = 'block';
+      document.body.addEventListener('click', () => {
+        audio.play();
+        hint.style.display = 'none';
+      }, { once: true });
+    });
+  }
+
+  window.addEventListener('load', () => {
+    tryPlay();
+  });
+</script>
+
+</body>
+</html>
