@@ -81,6 +81,18 @@
     <img src="logo.jpg" alt="ÉCLAVIEロゴ">
     <h1>ÉCLAVIE</h1>
     <p>世界を魅了するアパレルブランドへ。<br>コスプレレンタルから始まる、“特別”の形。</p>
+     <button onclick="startMusic()">▶ BGMを再生</button>
+  <audio id="bgm" src="neo-future.mp3" loop></audio>
+</div>
+
+<script>
+  function startMusic() {
+    const audio = document.getElementById('bgm');
+    audio.play().catch((e) => {
+      alert("再生できませんでした。もう一度押してね！");
+    });
+  }
+</script>
   </div>
 
 </body>
