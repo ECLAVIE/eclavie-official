@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ÉCLAVIE</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Helvetica Neue', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .logo-container img {
+      width: 280px;
+      max-width: 80%;
+      height: auto;
+      opacity: 0;
+      transform: scale(0.9);
+      animation: zoomFadeIn 1.5s ease-out forwards;
+    }
+
+    h1, p {
+      opacity: 0;
+      animation: textFadeIn 1.5s ease-out forwards;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 30px;
+      letter-spacing: 4px;
+      font-weight: normal;
+      color: #d6d6d6;
+      animation-delay: 1s;
+    }
+
+    p {
+      font-size: 18px;
+      color: #aaa;
+      max-width: 600px;
+      margin: 10px auto 0;
+      line-height: 1.6;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes zoomFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes textFadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-container">
+    <img src="logo.jpeg" alt="ÉCLAVIEロゴ">
+    <h1>ÉCLAVIE</h1>
+    <p>世界を魅了するアパレルブランドへ。<br>コスプレレンタルから始まる、“特別”の形。</p>
+  </div>
+
+</body>
+</html>
