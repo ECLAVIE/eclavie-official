@@ -1,38 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ÉCLAVIE - Official Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fff;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #111;
+      overflow-x: hidden;
+    }
 
-    color: #aaa;
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    header img {
+      width: 240px;
+      max-width: 80%;
+      animation: zoomIn 1.5s ease-out forwards;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    header h1 {
+      font-size: 38px;
+      color: #111;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #444;
+      margin-top: 10px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 2s ease-out forwards;
+      animation-delay: 0.8s;
+      opacity: 0;
+    }
+
+    nav {
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    section p {
+      font-size: 16px;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    footer {
+      padding: 30px 10px;
+      background: #f8f8f8;
+      text-align: center;
+      font-size: 14px;
+      color: #999;
+    }
+
+    @keyframes zoomIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 28px; }
+      section h2 { font-size: 24px; }
     }
   </style>
 </head>
 <body>
 
-<div class="flash"></div>
+<header>
+  <img src="logo.png" alt="ÉCLAVIE Symbol">
+  <h1><img src="wordmark.png" alt="ÉCLAVIE Wordmark" style="width: 200px; max-width: 70%; margin-top: 10px;"></h1>
+  <p>世界を魅了するアパレルブランドへ。コスプレレンタルから始まる、“特別”の形。</p>
+</header>
 
-<div class="logo-container" onclick="tryPlayAudio()">
-  <img src="logo.png" alt="ÉCLAVIEロゴ">
-  <h1>ÉCLAVIE</h1>
-  <p>世界を魅了するアパレルブランドへ。<br>コスプレレンタルから始まる、“特別”の形。</p>
-</div>
+<nav>
+  <a href="#about">ブランド</a>
+  <a href="#reserve">予約</a>
+  <a href="#gallery">ギャラリー</a>
+</nav>
 
-<div class="tap-to-unmute" id="tapHint" style="display: none;">※ タップで音をONにできます</div>
+<section id="about">
+  <h2>ブランドについて</h2>
+  <p>ÉCLAVIE（エクラヴィエ）は、唯一無二のスタイルを追求し続けるアパレルブランドです。高品質で個性が際立つコスプレ衣装の提供を通して、世界中の若者に“自分らしさ”を届けます。</p>
+</section>
 
-<audio id="bgm" src="neo-future.mp3" loop></audio>
+<section id="reserve">
+  <h2>ご予約について</h2>
+  <p>イベント限定ポップアップや、ホームページからのレンタル予約が可能です。詳細・最新情報は公式Instagramをご確認ください。</p>
+</section>
 
-<script>
-  const audio = document.getElementById('bgm');
-  const hint = document.getElementById('tapHint');
+<section id="gallery">
+  <h2>衣装ギャラリー</h2>
+  <p>レンタル可能な衣装やスタイリング例は、現在準備中です。近日公開予定！</p>
+</section>
 
-  function tryPlayAudio() {
-    audio.play().then(() => {
-      hint.style.display = 'none';
-    }).catch(() => {
-      hint.style.display = 'block';
-    });
-  }
-
-  window.addEventListener("load", () => {
-    tryPlayAudio();
-  });
-</script>
+<footer>
+  &copy; 2025 ÉCLAVIE. All rights reserved.
+</footer>
 
 </body>
 </html>
